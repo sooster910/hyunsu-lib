@@ -1,20 +1,13 @@
-
 {
-    "$schema": "https//turbo.build/schema.json",
-    "pipline": {
-        "build": {
-            "dependsOn": ["^build"],
-            "outputs":["dist/**"]
-
-        },
-        "start:live":{
-            "cache":false,
-            "persistent":true
-        },
-        "build:start":{
-            "cache":false,
-            "persistent":true
-        }
+  "$schema": "https//turbo.build/schema.json",
+  "pipeline": {
+    "test": {},
+    "test:watch": {
+      "cache": false
+    },
+    "build": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^build"]
     }
-        
+  }
 }

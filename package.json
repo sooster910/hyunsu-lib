@@ -7,10 +7,18 @@
     "dev": "turbo start:live",
     "build": "turbo build",
     "server": "turbo build:start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "test:watch": "turbo run test:watch",
+    "ci:publish": "pnpm publish -r",
+    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@8.15.4+sha256.cea6d0bdf2de3a0549582da3983c70c92ffc577ff4410cbf190817ddc35137c2"
+  "packageManager": "pnpm@8.15.4+sha256.cea6d0bdf2de3a0549582da3983c70c92ffc577ff4410cbf190817ddc35137c2",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "turbo": "^1.12.5"
+  }
 }

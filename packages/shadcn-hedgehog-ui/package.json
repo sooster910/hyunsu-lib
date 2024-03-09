@@ -1,21 +1,23 @@
 {
   "name": "@hyunsu-lib/shadcn-hedgehog-ui",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
-  "exports":{
+  "exports": {
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.umd.js",
-      "types":"./dist/index.d.ts"
+      "types": "./dist/index.d.ts"
     }
   },
-  "types":"./dist/index.d.ts",
-  "main": "dist/index.umd.js",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs.js",
   "scripts": {
-    "dev": "pnpm build --watch",
-    "test": "vitest",
-    "build": "tsc && vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
@@ -58,7 +60,8 @@
     "react-dom": "^18.2.0",
     "storybook": "^7.6.17",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.2.2",
+    "tsup": "^8.0.2",
+    "typescript": "5.3.3",
     "vite": "^5.1.5",
     "vite-plugin-dts": "^3.7.3",
     "vite-tsconfig-paths": "^4.3.1",
